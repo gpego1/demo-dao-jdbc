@@ -36,11 +36,16 @@ public class Program {
 //        sellerDAO.insert(newSeller);
 //        System.out.println("created seller: " + newSeller.getId());
 
-        System.out.println("\n=== TEST: Seller: UPDATE =======");
-        seller = sellerDAO.findById(1);
-        seller.setName("Marina Silva");
-        sellerDAO.update(seller);
-        System.out.println("Update successfully");
+//        System.out.println("\n=== TEST: Seller: UPDATE =======");
+//        seller = sellerDAO.findById(1);
+//        seller.setName("Marina Silva");
+//        sellerDAO.update(seller);
+//        System.out.println("Update successfully");
 
+        System.out.println("\n=== TEST: Seller: DELETE =======");
+        System.out.println("Type a Seller ID to delete");
+        int deleteId = sc.nextInt();
+        sellerDAO.deleteById(deleteId);
+        System.out.println("Deleted successfully");
     }
 }
