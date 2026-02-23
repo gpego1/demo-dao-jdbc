@@ -92,7 +92,10 @@ public class SellerDaoJDBC implements SellerDAO {
                             """
             );
             preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
+            int rows = preparedStatement.executeUpdate();
+
+            if (rows == 0) throw new DbException("No rows to delete");
+
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
