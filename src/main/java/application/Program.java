@@ -18,7 +18,8 @@ public class Program {
 //        Integer idSeller = sc.nextInt();
 
         SellerDAO sellerDAO = DaoFactory.createSellerDao();
-//        Seller seller = sellerDAO.findById(idSeller);
+        Seller seller = sellerDAO.findById(1);
+
 //        System.out.println(seller);
 //
 //        System.out.println("\n=== TEST: Seller: findByDepartment =======");
@@ -30,11 +31,16 @@ public class Program {
 //        List<Seller> findAll = sellerDAO.findAll();
 //        System.out.println(findAll);
 
-        System.out.println("\n=== TEST: Seller: INSERT =======");
-        var newSeller = new Seller(null, "greg","greg@email.com",new Date(), 400.00, department);
-        sellerDAO.insert(newSeller);
-        System.out.println("created seller: " + newSeller.getId());
+//        System.out.println("\n=== TEST: Seller: INSERT =======");
+  //      var newSeller = new Seller(null, "greg","greg@email.com",new Date(), 400.00, department);
+//        sellerDAO.insert(newSeller);
+//        System.out.println("created seller: " + newSeller.getId());
 
+        System.out.println("\n=== TEST: Seller: UPDATE =======");
+        seller = sellerDAO.findById(1);
+        seller.setName("Marina Silva");
+        sellerDAO.update(seller);
+        System.out.println("Update successfully");
 
     }
 }
