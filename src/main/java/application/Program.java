@@ -2,14 +2,16 @@ package application;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDAO;
 import model.dao.SellerDAO;
+import model.entities.Department;
 import model.entities.Seller;
 
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Program {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        var sc = new Scanner(System.in);
 
         System.out.println("Type the id seller you wanna search for: ");
         Integer idSeller = sc.nextInt();
@@ -18,7 +20,10 @@ public class Program {
         Seller seller = sellerDAO.findById(idSeller);
         System.out.println(seller);
 
-        DepartmentDAO departmentDAO = DaoFactory.createDepartmentDao();
+        System.out.println("\n=== TEST: Seller: findByDepartment =======");
+        var department = new Department(2, null);
+        List<Seller> listSellers = sellerDAO.findByDepartment(department);
+        System.out.println(listSellers);
 
     }
 }
